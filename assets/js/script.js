@@ -77,10 +77,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const header = document.querySelector('.header');
         const hero = document.querySelector('.hero');
         if (header && hero) {
-            hero.style.paddingTop = (header.offsetHeight + 20) + 'px';
+            // Use getBoundingClientRect for more accurate height measurement
+            const headerHeight = header.getBoundingClientRect().height;
+            // Add extra space (120px) to ensure content is fully visible
+            hero.style.paddingTop = (headerHeight + 120) + 'px';
         }
     }
 
+    // Run immediately, on load, on resize, and after delays
     setHeroPadding();
+    window.addEventListener('load', setHeroPadding);
     window.addEventListener('resize', setHeroPadding);
+    // Run multiple times to ensure it applies
+    setTimeout(setHeroPadding, 100);
+    setTimeout(setHeroPadding, 500);
+    setTimeout(setHeroPadding, 1000);
 });
