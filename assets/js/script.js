@@ -15,60 +15,6 @@ window.onclick = function(event) {
     }
 }
 
-// Form submission handling
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('interestForm');
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Get form data
-        const formData = new FormData(form);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            crypto: formData.get('crypto'),
-            interest: formData.get('interest'),
-            timestamp: new Date().toISOString(),
-            event: 'Stateless Hack KL'
-        };
-
-        // Show loading state
-        const submitButton = form.querySelector('.submit-button');
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Submitting...';
-        submitButton.disabled = true;
-
-        // Simulate form submission (replace with actual endpoint)
-        setTimeout(() => {
-            // Reset form
-            form.reset();
-
-            // Show success message
-            alert('Thank you! We\'ll contact you with deposit instructions once we validate demand.');
-
-            // Close modal
-            closeModal();
-
-            // Reset button
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-
-            // In a real implementation, you would send data to your backend
-            console.log('Form submitted:', data);
-
-            // Example: Send to Google Forms, Typeform, or your own API
-            // fetch('/api/register-interest', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(data)
-            // });
-
-        }, 2000);
-    });
-});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -96,19 +42,33 @@ window.addEventListener('scroll', function() {
 
 // Analytics tracking
 function trackEvent(eventName, properties = {}) {
-    Example for Google Analytics:
+    // Example for Google Analytics:
     if (window.gtag) {
         window.gtag('event', eventName, properties);
     }
 }
 
-// Track CTA clicks
-document.querySelectorAll('.cta-button').forEach(button => {
-    button.addEventListener('click', () => {
-        trackEvent('CTA Click', {
-            location: 'KL',
-            price: '360',
-            button_text: button.textContent.trim()
+// Add event listeners for modal triggers and close buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const modalTriggers = document.querySelectorAll('.modal-trigger');
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', openModal);
+    });
+
+    // Add event listener for modal close button
+    const modalCloseButtons = document.querySelectorAll('.modal-close');
+    modalCloseButtons.forEach(button => {
+        button.addEventListener('click', closeModal);
+    });
+
+    // Track CTA clicks
+    document.querySelectorAll('.cta-button').forEach(button => {
+        button.addEventListener('click', () => {
+            trackEvent('CTA Click', {
+                location: 'KL',
+                price: '360',
+                button_text: button.textContent.trim()
+            });
         });
     });
 });
