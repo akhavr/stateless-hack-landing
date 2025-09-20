@@ -71,4 +71,16 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // Adjust hero padding to account for fixed header
+    function setHeroPadding() {
+        const header = document.querySelector('.header');
+        const hero = document.querySelector('.hero');
+        if (header && hero) {
+            hero.style.paddingTop = (header.offsetHeight + 20) + 'px';
+        }
+    }
+
+    setHeroPadding();
+    window.addEventListener('resize', setHeroPadding);
 });
