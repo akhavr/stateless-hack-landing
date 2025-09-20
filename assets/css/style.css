@@ -83,7 +83,7 @@ body {
 
 /* Hero Section - Add top padding to account for fixed header */
 .hero {
-    padding: 140px 0 80px;
+    padding: 180px 0 80px;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d1b69 50%, #11998e 100%);
     position: relative;
     overflow: hidden;
