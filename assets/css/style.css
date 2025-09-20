@@ -19,9 +19,9 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
+/* Header - Fixed positioning issue */
 .header {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -36,6 +36,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 60px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
 }
 
 .nav-brand h1 {
@@ -45,6 +53,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin: 0;
 }
 
 .nav-brand .location {
@@ -72,9 +81,9 @@ body {
     font-size: 0.9rem;
 }
 
-/* Hero Section */
+/* Hero Section - Add top padding to account for fixed header */
 .hero {
-    padding: 120px 0 80px;
+    padding: 140px 0 80px;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d1b69 50%, #11998e 100%);
     position: relative;
     overflow: hidden;
@@ -205,53 +214,54 @@ body {
     background-clip: text;
 }
 
-/* Schedule */
-.schedule {
-    max-width: 800px;
+/* TBD Styling */
+.tbd {
+    color: #ccc;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px dashed #333;
+    max-width: 600px;
     margin: 0 auto;
 }
 
-.schedule-item {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 2.5rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.schedule-item .time {
-    font-size: 1.1rem;
-    font-weight: 600;
+.tbd h3 {
     color: #4ecdc4;
-    min-width: 150px;
-    flex-shrink: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
-.schedule-item .session h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+.tbd p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.tbd h4 {
     color: #ff6b6b;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.2rem;
 }
 
-.schedule-item .session ul {
+.tbd ul {
     list-style: none;
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
-.schedule-item .session li {
-    margin-bottom: 0.3rem;
-    color: #ccc;
+.tbd li {
+    margin-bottom: 0.5rem;
     position: relative;
-    padding-left: 20px;
+    padding-left: 25px;
 }
 
-.schedule-item .session li::before {
-    content: "→";
+.tbd li::before {
+    content: "✓";
     position: absolute;
     left: 0;
     color: #4ecdc4;
+    font-weight: bold;
 }
 
 /* Crypto Reasons */
@@ -286,42 +296,6 @@ body {
 
 .reason p {
     color: #ccc;
-}
-
-/* Location */
-.location-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    max-width: 800px;
-    margin: 0 auto;
-    align-items: start;
-}
-
-.location-details h3,
-.location-benefits h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #4ecdc4;
-}
-
-.location-benefits ul {
-    list-style: none;
-}
-
-.location-benefits li {
-    margin-bottom: 0.5rem;
-    color: #ccc;
-    position: relative;
-    padding-left: 25px;
-}
-
-.location-benefits li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #4ecdc4;
-    font-weight: bold;
 }
 
 /* CTA Footer */
@@ -479,6 +453,10 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hero {
+        padding: 120px 0 60px;
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
@@ -486,26 +464,22 @@ body {
     .hero-highlights {
         flex-direction: column;
         align-items: center;
-    }
-
-    .schedule-item {
-        flex-direction: column;
         gap: 15px;
-    }
-
-    .location-info {
-        grid-template-columns: 1fr;
-        gap: 30px;
     }
 
     .nav {
         flex-direction: column;
         gap: 15px;
         text-align: center;
+        padding: 1rem;
     }
 
     .nav-info {
         justify-content: center;
+    }
+
+    .tbd {
+        padding: 2rem 1rem;
     }
 }
 
@@ -525,5 +499,9 @@ body {
     .cta-button {
         padding: 1rem 1.5rem;
         font-size: 1rem;
+    }
+
+    .nav {
+        padding: 0.5rem 1rem;
     }
 }

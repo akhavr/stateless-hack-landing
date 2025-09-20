@@ -88,17 +88,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
     if (window.scrollY > 100) {
-        header.style.background = 'rgba(0, 0, 0, 0.95)';
+        header.style.background = 'rgba(0, 0, 0, 0.98)';
     } else {
-        header.style.background = 'rgba(0, 0, 0, 0.9)';
+        header.style.background = 'rgba(0, 0, 0, 0.95)';
     }
 });
 
 // Analytics tracking
 function trackEvent(eventName, properties = {}) {
-    // Replace with your analytics service (Plausible, Google Analytics, etc.)
-    console.log('Event tracked:', eventName, properties);
-
     Example for Google Analytics:
     if (window.gtag) {
         window.gtag('event', eventName, properties);
