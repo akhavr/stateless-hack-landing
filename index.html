@@ -142,44 +142,27 @@
         </div>
     </section>
 
-    <!-- Interest Modal -->
+    <!-- Google Forms Modal -->
     <div id="interestModal" class="modal" style="display: none;">
-        <div class="modal-content">
+        <div class="modal-content google-forms">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Register Your Interest</h2>
             <p>Join the waitlist for Stateless Hack Kuala Lumpur</p>
 
-            <form id="interestForm" class="interest-form">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
+            <div class="form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfVXdBeUestwhzc7ZXErNS7SeKjwrr-LS5Gc0p6cvubP5LFQA/viewform?embedded=true" 
+                        width="100%" 
+                        height="600" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0">
+                    Loading Google Form...
+                </iframe>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="crypto">Preferred Crypto Payment</label>
-                    <select id="crypto" name="crypto">
-                        <option value="crypto">Cryptocurrency (details TBD)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="interest">What interests you most?</label>
-                    <textarea id="interest" name="interest" rows="3" placeholder="Nomadic strategies, AI decentralization, longevity protocols..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-button">
-                    Submit Interest
-                </button>
-
-                <p class="form-note">
-                    We'll contact you with deposit instructions once we validate demand.
-                </p>
-            </form>
+            <p class="form-note">
+                We'll contact you with deposit instructions once we validate demand.
+            </p>
         </div>
     </div>
 
